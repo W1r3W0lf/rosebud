@@ -7,7 +7,7 @@ class ArticalPreview:
         self.name = path.split("/")[-1]
         self.index = path.split("/")[-1]
         self.path = path
-        self.thumbnale = glob
+        self.thumbmail = glob(path + "/thumb*")
         self.number = 0
         self.pubDate = ""
         self.blerb = ""
@@ -16,7 +16,7 @@ class ArticalPreview:
 
     def findMetaData(self):
         try:
-            with open("static/articals/" + self.name + "meta.json") as meta:
+            with open("static/articles/" + self.name + "meta.json") as meta:
                 metaData = json.loads(meta.read())
 
             self.number = int(metaData["number"])

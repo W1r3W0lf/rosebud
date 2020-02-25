@@ -8,20 +8,20 @@
 <body>
 
 <div id="title">
-	<h1>My Articals</h1>
+	<h1>My Article</h1>
 </div>
 
-<div id="articalList">
+<div id="articleList">
 	<p>Intro text</p>
 
-	{% for artical in articals %}
+	{% for article in articles %}
         <div id="projectBox" class="projectPreview">
-			{% if artical.thumbnale %}
-			<img src="{{ artical.thumbnale[0] }}" alt="" id="articalThumb">
+			{% if article.thumbnail %}
+			<img src="{{ article.thumbnail[0] }}" alt="" id="articleThumb">
             {%  endif %}
-			<div id="articalBlerb" class="articalPreview">
-				<a href="{{ artical.index }}" id="articalTitle">{{ artical.name }}</a>
-				<p>{{ artical.blerb }}</p>
+			<div id="articleBlerb" class="articlePreview">
+				<a href="{{ article.index }}" id="articleTitle">{{ article.name }}</a>
+				<p>{{ article.blerb }}</p>
             </div>
         </div>
     {% endfor %}

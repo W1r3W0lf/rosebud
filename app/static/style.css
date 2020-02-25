@@ -45,7 +45,7 @@ h1{
     margin-top: 0;
 }
 
-#articalList{
+#articleList{
     //width: 800px;
     max-width: 800px;
     margin: 0 auto;
@@ -54,7 +54,7 @@ h1{
 
 }
 
-#articalBox{
+#articleBox{
     //width: 100%;
     display: flex;
     background-color: #515658;
@@ -66,18 +66,18 @@ h1{
 }
 
 
-.articalPreview{
+.articlePreview{
     display: flex;
     border-radius: 5px;
 }
 
-#articalThumb{
+#articleThumb{
     //width: 60%;
     width: 500px;
     border-radius: 5px;
 }
 
-#articalBlerb{
+#articleBlerb{
     //width: 40%;
     width: 250px;
     flex-direction: column;
@@ -86,7 +86,7 @@ h1{
     line-height: 25px;
 }
 
-#articalTitle{
+#articleTitle{
     text-align: center;
     font-size: 16pt;
 }
