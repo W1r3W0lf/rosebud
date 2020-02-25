@@ -1,17 +1,18 @@
-FROM nginx:latest 
+FROM fedora:latest 
 
 MAINTAINER Wire_Wolf
 
-RUN apt update -y && apt install -y python3 python3-pip python3-dev
+RUN dnf update -y
+RUN dnf install -y python python-pip
 
 COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . /app
 
-ENTRYPOINT ["python3"]
+ENTRYPOINT ["python"]
 
 CMD ["app.py"]

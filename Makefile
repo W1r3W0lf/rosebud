@@ -11,5 +11,5 @@ Scratch:
 	./buildahfile-Scratch.sh
 
 clean:
-	podman image rm /local/wire_wolf/rosebud
+	podman image rm localhost/wire_wolf/rosebud
 	#buildah -rmi 
