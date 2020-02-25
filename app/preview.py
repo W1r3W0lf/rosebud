@@ -1,0 +1,28 @@
+from glob import glob
+import json
+
+class ArticalPreview:
+    def __init__(self, path):
+
+        self.name = path.split("/")[-1]
+        self.index = path.split("/")[-1]
+        self.path = path
+        self.thumbnale = glob
+        self.number = 0
+        self.pubDate = ""
+        self.blerb = ""
+
+        self.findMetaData()
+
+    def findMetaData(self):
+        try:
+            with open("static/projects/" + self.name + "meta.json") as meta:
+                metaData = json.loads(meta.read())
+
+            self.number = int(metaData["number"])
+            self.pubDate = metaData["pubDate"]
+            self.blerb = metaData["blerb"]
+            self.name = metaData["name"]
+        except IOError:
+            self.blerb = "ERROR META FILE MISSING"
+
