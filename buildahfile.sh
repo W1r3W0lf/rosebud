@@ -1,3 +1,4 @@
 #! /bin/bash
-
-echo "Buildah Build"
+echo "Starting Buildah Build"
+set -x
+rose=$(buildah from fedora:31)
