@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Markup
-from preview import ArticalPreview
+from app.preview import ArticalPreview
 from glob import glob
 
 app = Flask(__name__)
