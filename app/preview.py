@@ -16,7 +16,7 @@ class ArticalPreview:
 
     def findMetaData(self):
         try:
-            with open("static/projects/" + self.name + "meta.json") as meta:
+            with open("static/articals/" + self.name + "meta.json") as meta:
                 metaData = json.loads(meta.read())
 
             self.number = int(metaData["number"])

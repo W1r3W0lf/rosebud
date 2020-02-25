@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+<div id="title">
+	<h1>My Articals</h1>
+</div>
+
+<div id="articalList">
+	<p>Intro text</p>
+
+	{% for artical in articals %}
+        <div id="projectBox" class="projectPreview">
+			{% if artical.thumbnale %}
+			<img src="{{ artical.thumbnale[0] }}" alt="" id="articalThumb">
+            {%  endif %}
+			<div id="articalBlerb" class="articalPreview">
+				<a href="{{ artical.index }}" id="articalTitle">{{ artical.name }}</a>
+				<p>{{ artical.blerb }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
