@@ -1,6 +1,3 @@
-
-
-
 Dockerfile.out:
 	podman image build -t wire_wolf/rosebud .
 
@@ -12,4 +9,3 @@ Scratch:
 
 clean:
 	podman image rm localhost/wire_wolf/rosebud
-	#buildah -rmi 

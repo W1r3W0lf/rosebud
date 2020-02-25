@@ -1,18 +1,15 @@
 FROM fedora:latest 
-
 MAINTAINER Wire_Wolf
 
-RUN dnf update -y
-RUN dnf install -y python python-pip
-
+#Install requirements
+RUN dnf update -y && dnf install -y python python-pip
 COPY ./requirements.txt /app/requirements.txt
-
-WORKDIR /app
-
 RUN pip install -r requirements.txt
 
-COPY . /app
+#Set working enviernment
+WORKDIR /app
+COPY ./app /app
 
+#Start the Program
 ENTRYPOINT ["python"]
-
 CMD ["app.py"]
