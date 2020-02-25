@@ -6,24 +6,27 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    articles = sorted([ArticalPreview(path) for path in glob("static/articles/*")], key=lambda x: x.number, reverse=True)
+    # Gets a sorted list of all of the articles based on there given number.
+    articles = [ArticalPreview(path) for path in glob("static/articles/*")]
+    get_number = lambda article: article.number
+    articles = sorted(articles, key=get_number, reverse=True)
     return render_template("index.html", articles=articles)
 
 @app.route('/<name>')
 def article(name):
 
     # Check user input to see if there is a matching article
-    article_paths = glob("static/articles/*/")
-    article_names = [path.split("/")[-1] for path in artical_paths]
+    article_paths = glob("static/articles/*")
+    article_names = [path.split("/")[-1] for path in article_paths]
 
     if name in article_names:
         try:
-            with open("static/articles"+name+"text.html") as text:
+            with open("static/articles/"+name+"/text.html") as text:
                 rawtext = text.read()
         except IOError:
-            return "Error while opening article " + name
+            return "Error while opening article :" + name
     else:
-        return name + " no such article"
+        return "No such article as :" + name
 
     content = Markup(rawtext)
     return render_template("article.html", name=name, content=content)

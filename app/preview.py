@@ -9,18 +9,16 @@ class ArticalPreview:
         self.path = path
         self.thumbmail = glob(path + "/thumb*")
         self.number = 0
-        self.pubDate = ""
         self.blerb = ""
 
         self.findMetaData()
 
     def findMetaData(self):
         try:
-            with open("static/articles/" + self.name + "meta.json") as meta:
+            with open("static/articles/" + self.name + "/meta.json") as meta:
                 metaData = json.loads(meta.read())
 
             self.number = int(metaData["number"])
-            self.pubDate = metaData["pubDate"]
             self.blerb = metaData["blerb"]
             self.name = metaData["name"]
         except IOError:
