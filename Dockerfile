@@ -2,9 +2,9 @@ FROM nginx:latest
 
 MAINTAINER Wire_Wolf
 
-RUN apt update -y && apt install -y python3 python3-dev
+RUN apt update -y && apt install -y python3 python3-pip python3-dev
 
-COPY ./requirements.txt
+COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
