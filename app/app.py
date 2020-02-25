@@ -21,6 +21,7 @@ def article(name):
 
     if name in article_names:
         try:
+            # Exstract the text from the article's text.html file 
             with open("static/articles/"+name+"/text.html") as text:
                 rawtext = text.read()
         except IOError:
@@ -28,6 +29,7 @@ def article(name):
     else:
         return "No such article as :" + name
 
+    # place the raw text into the article template
     content = Markup(rawtext)
     return render_template("article.html", name=name, content=content)
 
