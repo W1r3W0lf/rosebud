@@ -2,23 +2,20 @@ FROM fedora:latest
 MAINTAINER Wire_Wolf
 
 RUN useradd rose
-RUN mkdir /rose
+COPY ./rose /rose
+WORKDIR /rose
 RUN chown rose:rose /rose
 
 #Install requirements
-RUN dnf update -y && dnf install -y python python-pip gcc python-devel uwsgi
-COPY ./requirements.txt /rose
-
-#Set working enviernment
-WORKDIR /rose
-COPY ./app /rose/app
-COPY ./wsgi.py /rose
-COPY ./rosebud.ini /rose
-
+RUN dnf update -y
+RUN dnf install -y python python-pip gcc python-devel 
 RUN pip install -r requirements.txt
+
+RUN chmod +x start.sh
+
 
 #Start the Program
 #ENTRYPOINT ["python"]
 #CMD ["uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi"]
-CMD uwsgi --ini rosebud.ini
-#CMD ["./start.sh"]
+#CMD uwsgi --ini rosebud.ini
+CMD ./start.sh
