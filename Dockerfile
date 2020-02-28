@@ -13,7 +13,7 @@ RUN pip install -r requirements.txt
 
 RUN chmod +x start.sh
 
-
+USER rose
 #Start the Program
 #ENTRYPOINT ["python"]
 #CMD ["uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi"]
